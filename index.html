@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wealth Wizard</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h1>Wealth Wizard</h1>
+  <div class="container">
+    <div class="info" id="info-section">
+      <p><strong>What is the 50/30/20 rule?</strong></p>
+      <p>The 50/30/20 rule is a budgeting method that allocates your net income into three categories:</p>
+      <ul>
+        <li><strong>50% for Needs:</strong> Essential expenses like housing, food, utilities, and transportation.</li>
+        <li><strong>30% for Fun Fund:</strong> Discretionary spending like entertainment, dining out, and hobbies.</li>
+        <li><strong>20% for Savings:</strong> Financial goals such as investments, emergency funds, or debt repayment.</li>
+      </ul>
+      <p>This simple framework helps you prioritize essential expenses while setting aside funds for both enjoyment and future financial security.</p>
+    </div>
+    <label for="salary">Gross Salary:</label>
+    <input type="number" id="salary" placeholder="Enter Gross Salary">
+
+    <label for="taxRate">Tax Rate (%):</label>
+    <input type="number" id="taxRate" placeholder="Enter Tax Rate (Default: 40%)" value="40">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="output" class="result" style="display: none;">
+      <p><strong>Net Salary:</strong> <span id="net-salary" class="highlight"></span></p>
+      
+      <p><strong>Needs (50%):</strong> <span id="needs" class="highlight"></span></p>
+      <p class="subtitle">Examples: Rent, groceries, utilities, transportation</p>
+
+      <p><strong>Fun Fund (30%):</strong> <span id="wants" class="highlight"></span></p>
+      <p class="subtitle">Examples: Dining out, entertainment, subscriptions</p>
+
+      <p><strong>Savings (20%):</strong></p>
+      <p><strong>Investment:</strong> <span id="investment" class="highlight"></span></p>
+      <p><strong>Fuck Fund:</strong> <span id="fuck-fund" class="highlight"></span></p>
+      <p class="subtitle">Examples: Emergency fund, investments, debt repayment</p>
+
+      <div class="catchy-phrase" id="catchy-phrase"></div>
+    </div>
+  </div>
+
+  <script>
+    function calculate() {
+      const grossSalary = parseFloat(document.getElementById('salary').value);
+      const taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
+
+      if (isNaN(grossSalary) || grossSalary <= 0 || isNaN(taxRate) || taxRate < 0 || taxRate > 1) {
+        alert('Please enter valid values.');
+        return;
+      }
+
+      const netSalary = grossSalary * (1 - taxRate);
+      const needs = netSalary * 0.5;
+      const funFund = netSalary * 0.3;
+      const savings = netSalary * 0.2;
+      const investment = savings * 0.5;
+      const fuckFund = savings * 0.5;
+
+      document.getElementById('net-salary').innerText = netSalary.toFixed(2);
+      document.getElementById('needs').innerText = needs.toFixed(2);
+      document.getElementById('wants').innerText = funFund.toFixed(2);
+      document.getElementById('investment').innerText = investment.toFixed(2);
+      document.getElementById('fuck-fund').innerText = fuckFund.toFixed(2);
+
+      const phrases = [
+        "You're one step closer to financial freedom!",
+        "Great budgeting starts here!",
+        "Smart choices lead to a secure future!",
+        "You got this! Manage your money wisely!"
+      ];
+
+      document.getElementById('catchy-phrase').innerText = phrases[Math.floor(Math.random() * phrases.length)];
+
+      // Hide the info section and show the output
+      document.getElementById('info-section').style.display = 'none';
+      document.getElementById('output').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
