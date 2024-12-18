@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wealth Wizard</title>
-  <link rel="stylesheet" href="style.css">
-
+  
 </head>
 <body>
   <h1>Wealth Wizard</h1>
@@ -29,19 +29,32 @@
     <button onclick="calculate()">Calculate</button>
 
     <div id="output" class="result" style="display: none;">
-      <p><strong>Net Salary:</strong> <span id="net-salary" class="highlight"></span></p>
-      
-      <p><strong>Needs (50%):</strong> <span id="needs" class="highlight"></span></p>
-      <p class="subtitle">Examples: Rent, groceries, utilities, transportation</p>
-
-      <p><strong>Fun Fund (30%):</strong> <span id="wants" class="highlight"></span></p>
-      <p class="subtitle">Examples: Dining out, entertainment, subscriptions</p>
-
-      <p><strong>Savings (20%):</strong></p>
-      <p><strong>Investment:</strong> <span id="investment" class="highlight"></span></p>
-      <p><strong>Fuck Fund:</strong> <span id="fuck-fund" class="highlight"></span></p>
-      <p class="subtitle">Examples: Emergency fund, investments, debt repayment</p>
-
+      <ul>
+        <li><strong>Net Salary:</strong> <span id="net-salary" class="highlight"></span>
+          <ul>
+            <li><strong>Needs (50%):</strong> <span id="needs" class="highlight"></span>
+              <ul>
+                <p style="font-style: italic; color: #666;">Examples: Rent, mortgage, groceries, utilities, transportation</p>
+              </ul>
+            </li>
+            <li><strong>Fun Fund (30%):</strong> <span id="wants" class="highlight"></span>
+              <ul>
+                <p style="font-style: italic; color: #666;">Examples: Dining out, entertainment, subscriptions</p>
+              </ul>
+            </li>
+            <li><strong>Savings (20%):</strong>
+              <ul>
+                <li><strong>Investment (10%):</strong> <span id="investment" class="highlight"></span>
+                  <p style="font-style: italic; color: #666;">Examples: Stocks, mutual funds, retirement accounts</p>
+                </li>
+                <li><strong>Fuck Fund (10%):</strong> <span id="fuck-fund" class="highlight"></span>
+                  <p style="font-style: italic; color: #666;">Examples: Unexpected repairs, last-minute travel, medical emergencies</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
       <div class="catchy-phrase" id="catchy-phrase"></div>
     </div>
   </div>
