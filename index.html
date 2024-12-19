@@ -2,29 +2,46 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wealth Wizard</title>
-  
+
 </head>
 <body>
   <h1>Wealth Wizard</h1>
   <div class="container">
-    <div class="info" id="info-section">
-      <p><strong>What is the 50/30/20 rule?</strong></p>
-      <p>The 50/30/20 rule is a budgeting method that allocates your net income into three categories:</p>
-      <ul>
-        <li><strong>50% for Needs:</strong> Essential expenses like housing, food, utilities, and transportation.</li>
-        <li><strong>30% for Fun Fund:</strong> Discretionary spending like entertainment, dining out, and hobbies.</li>
-        <li><strong>20% for Savings:</strong> Financial goals such as investments, emergency funds, or debt repayment.</li>
+    <section id="examples-and-links">
+      <h2>Learn More</h2>
+      <p>These resources provide actionable insights and practical examples to help you achieve financial clarity and stability:</p>
+      <ul id="links">
+        <li><a href="https://www.thebalance.com/the-50-30-20-rule-of-thumb-453922" target="_blank">A Guide to Budgeting</a></li>
+        <li><a href="https://www.investopedia.com/ask/answers/022916/what-502030-budget-rule.asp#toc-20-savings">The 50/30/20 Budget Rule</a></li>
+        <li><a href="https://www.investopedia.com/personal-finance-4427760">Personal Finance</a></li>
+        <li><a href="https://www.femaleinvest.com/eu/resources/investment-dictionary">Investment Dictionary</a></li>
+        <li><a href=""></a></li>
       </ul>
-      <p>This simple framework helps you prioritize essential expenses while setting aside funds for both enjoyment and future financial security.</p>
-    </div>
-    <label for="salary">Gross Salary:</label>
-    <input type="number" id="salary" placeholder="Enter Gross Salary">
+      
+    </section>
 
-    <label for="taxRate">Tax Rate (%):</label>
-    <input type="number" id="taxRate" placeholder="Enter Tax Rate (Default: 40%)" value="40">
+    <div class="calculator">
+      <div class="info" id="info-section">
+        <p><strong>What is the 50/30/20 rule?</strong></p>
+        <p>The 50/30/20 rule is a budgeting method that allocates your net income into three categories:</p>
+        <ul>
+          <li><strong>50% for Needs:</strong> Essential expenses like housing, food, utilities, and transportation.</li>
+          <li><strong>30% for Fun Fund:</strong> Discretionary spending like entertainment, dining out, and hobbies.</li>
+          <li><strong>20% for Savings:</strong> Financial goals such as investments, emergency funds, or debt repayment.</li>
+        </ul>
+        <p>This simple framework helps you prioritize essential expenses while setting aside funds for both enjoyment and future financial security.</p>
+      </div>
+      <label for="salary">Gross Salary:</label>
+      <input type="number" id="salary" placeholder="Enter Gross Salary">
+
+      <label for="taxRate">Tax Rate (%):</label>
+      <input type="number" id="taxRate" placeholder="Enter Tax Rate (Default: 40%)" value="40">
 
     <button onclick="calculate()">Calculate</button>
 
@@ -56,6 +73,35 @@
         </li>
       </ul>
       <div class="catchy-phrase" id="catchy-phrase"></div>
+      <div id="output" class="result" style="display: none;">
+        <ul>
+          <li><strong>Net Salary:</strong> <span id="net-salary" class="highlight"></span>
+            <ul>
+              <li><strong>Needs (50%):</strong> <span id="needs" class="highlight"></span>
+                <ul>
+                  <p style="font-style: italic; color: #666;">Examples: Rent, groceries, utilities, transportation</p>
+                </ul>
+              </li>
+              <li><strong>Fun Fund (30%):</strong> <span id="wants" class="highlight"></span>
+                <ul>
+                  <p style="font-style: italic; color: #666;">Examples: Dining out, entertainment, subscriptions</p>
+                </ul>
+              </li>
+              <li><strong>Savings (20%):</strong>
+                <ul>
+                  <li><strong>Investment (10%):</strong> <span id="investment" class="highlight"></span>
+                    <p style="font-style: italic; color: #666;">Examples: Stocks, mutual funds, retirement accounts</p>
+                  </li>
+                  <li><strong>Fucked Fund (10%):</strong> <span id="fuck-fund" class="highlight"></span>
+                    <p style="font-style: italic; color: #666;">Examples: Unexpected repairs, last-minute travel, medical emergencies</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="catchy-phrase" id="catchy-phrase"></div>
+      </div>
     </div>
   </div>
 

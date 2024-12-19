@@ -1,9 +1,12 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
   color: #333;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1 {
@@ -14,7 +17,7 @@ h1 {
 }
 
 .container {
-  max-width: 37.5rem;
+  max-width: 40rem;
   margin: 1.875rem auto;
   background: #ffffff;
   padding: 1.25rem;
@@ -112,4 +115,40 @@ ul {
 
 li:first-child {
   margin-top: 0.8125rem;
+}
+
+#links {
+  list-style-type: disc;
+  list-style: none;
+  padding-left: 0;
+}
+
+#links li {
+ font-size: smaller; 
+ margin-top: 10px;  
+}
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  #examples-and-links {
+    flex: 1;
+    max-width: 40%;
+  }
+  .calculator {
+    flex: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+  #examples-and-links {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 }
